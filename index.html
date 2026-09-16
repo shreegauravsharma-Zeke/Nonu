@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DevOps Portfolio | Shree Gaurav Sharma</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: #0f172a;
+        color: #e2e8f0;
+        line-height: 1.6;
+    }
+    header {
+        background: linear-gradient(135deg, #1e293b, #0f172a);
+        text-align: center;
+        padding: 60px 20px;
+        border-bottom: 2px solid #334155;
+    }
+    header h1 {
+        font-size: 2.5rem;
+        color: #38bdf8;
+    }
+    header p {
+        margin-top: 10px;
+        color: #94a3b8;
+        font-size: 1.1rem;
+    }
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+    .section {
+        margin-bottom: 40px;
+    }
+    .section h2 {
+        color: #38bdf8;
+        border-bottom: 1px solid #334155;
+        padding-bottom: 8px;
+        margin-bottom: 16px;
+    }
+    .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .skill-badge {
+        background: #1e293b;
+        border: 1px solid #38bdf8;
+        color: #38bdf8;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+    }
+    .project-card {
+        background: #1e293b;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 16px;
+        border-left: 4px solid #38bdf8;
+    }
+    .project-card h3 {
+        color: #f1f5f9;
+        margin-bottom: 8px;
+    }
+    .project-card p {
+        color: #94a3b8;
+    }
+    footer {
+        text-align: center;
+        padding: 24px;
+        color: #64748b;
+        border-top: 1px solid #334155;
+        font-size: 0.9rem;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Shree Gaurav Sharma</h1>
+    <p>DevOps Engineer | CI/CD | Cloud | Containers</p>
+</header>
+
+<div class="container">
+
+    <div class="section">
+        <h2>About</h2>
+        <p>This portfolio showcases my DevOps training journey — covering CI/CD pipelines,
+        containerization, cloud infrastructure on AWS, and automated deployments using
+        Jenkins and Docker.</p>
+    </div>
+
+    <div class="section">
+        <h2>Skills</h2>
+        <div class="skills">
+            <span class="skill-badge">AWS EC2</span>
+            <span class="skill-badge">Jenkins</span>
+            <span class="skill-badge">Docker</span>
+            <span class="skill-badge">Git & GitHub</span>
+            <span class="skill-badge">CI/CD Pipelines</span>
+            <span class="skill-badge">Linux (Ubuntu)</span>
+            <span class="skill-badge">Shell Scripting</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Projects</h2>
+
+        <div class="project-card">
+            <h3>Jenkins + Docker CI/CD Pipeline</h3>
+            <p>Automated pipeline that pulls source code from GitHub, builds a Docker image,
+            and deploys a containerized application — triggered automatically on every
+            git push via GitHub webhooks.</p>
+        </div>
+
+        <div class="project-card">
+            <h3>Dockerized Static Web App</h3>
+            <p>This very page — built into an nginx-based Docker image and deployed via
+            Jenkins, demonstrating an end-to-end build-and-deploy workflow.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Contact</h2>
+        <p>GitHub: <a href="https://github.com/shreegauravsharma-Zeke" style="color:#38bdf8;">
+        shreegauravsharma-Zeke</a></p>
+    </div>
+
+</div>
+
+<footer>
+    &copy; 2026 Shree Gaurav Sharma — Built with Docker & Jenkins
+</footer>
+
+</body>
+</html>
