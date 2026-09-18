@@ -2,144 +2,585 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>DevOps Portfolio | Shree Gaurav Sharma</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex Rivera — AWS DevOps Engineer &amp; Cybersecurity Specialist</title>
+<meta name="description" content="Portfolio of Alex Rivera, AWS DevOps Engineer and Cybersecurity Specialist.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-        font-family: 'Segoe UI', Arial, sans-serif;
-        background: #0f172a;
-        color: #e2e8f0;
-        line-height: 1.6;
+  :root{
+    --bg: #0D1B2A;
+    --bg-alt: #112538;
+    --panel: #142B41;
+    --line: rgba(255,255,255,0.09);
+    --text: #E8EEF4;
+    --text-dim: #93A5B8;
+    --aws: #FF9F1C;
+    --sec: #06D6A0;
+    --hobby: #9B5DE5;
+    --pink: #EF476F;
+    --radius-card: 14px;
+    --radius-pill: 999px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter', system-ui, sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+  img{ max-width:100%; display:block; }
+  ::selection{ background:var(--sec); color:#0B1120; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
+  }
+
+  .wrap{ max-width:1120px; margin:0 auto; padding:0 28px; }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(13,27,42,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1120px; margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{ display:flex; align-items:center; gap:10px; font-family:'Space Grotesk'; font-weight:700; font-size:1.05rem; }
+  .brand-mark{
+    width:34px; height:34px; border-radius:9px;
+    background:linear-gradient(135deg, var(--aws), var(--sec));
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono'; font-weight:500; color:#0B1120; font-size:0.85rem;
+  }
+  nav.links{ display:flex; gap:28px; font-size:0.92rem; color:var(--text-dim); }
+  nav.links a{ text-decoration:none; transition:color .15s ease; }
+  nav.links a:hover, nav.links a:focus-visible{ color:var(--text); }
+  .nav-cta{
+    padding:9px 18px; border-radius:var(--radius-pill);
+    background:var(--sec); color:#0B1120; font-weight:600; font-size:0.88rem;
+    text-decoration:none; border:1px solid var(--sec);
+  }
+  .menu-toggle{ display:none; background:none; border:1px solid var(--line); border-radius:8px; color:var(--text); padding:8px 10px; font-size:1rem; }
+
+  @media (max-width:760px){
+    nav.links{ display:none; }
+    .menu-toggle{ display:block; }
+    nav.links.open{
+      display:flex; flex-direction:column; gap:2px;
+      position:absolute; top:64px; left:0; right:0;
+      background:var(--bg-alt); padding:14px 28px; border-bottom:1px solid var(--line);
     }
-    header {
-        background: linear-gradient(135deg, #1e293b, #0f172a);
-        text-align: center;
-        padding: 60px 20px;
-        border-bottom: 2px solid #334155;
-    }
-    header h1 {
-        font-size: 2.5rem;
-        color: #38bdf8;
-    }
-    header p {
-        margin-top: 10px;
-        color: #94a3b8;
-        font-size: 1.1rem;
-    }
-    .container {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 40px 20px;
-    }
-    .section {
-    .hobbies {
-        margin-top: 20px;
-    }
-        margin-bottom: 40px;
-    }
-    .section h2 {
-        color: #38bdf8;
-        border-bottom: 1px solid #334155;
-        padding-bottom: 8px;
-        margin-bottom: 16px;
-    }
-    .skills {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-    .skill-badge {
-        background: #1e293b;
-        border: 1px solid #38bdf8;
-        color: #38bdf8;
-        padding: 6px 14px;
-        border-radius: 20px;
-        font-size: 0.9rem;
-    }
-    .project-card {
-        background: #1e293b;
-        border-radius: 8px;
-        padding: 20px;
-        margin-bottom: 16px;
-        border-left: 4px solid #38bdf8;
-    }
-    .project-card h3 {
-        color: #f1f5f9;
-        margin-bottom: 8px;
-    }
-    .project-card p {
-        color: #94a3b8;
-    }
-    footer {
-        text-align: center;
-        padding: 24px;
-        color: #64748b;
-        border-top: 1px solid #334155;
-        font-size: 0.9rem;
-    }
+    nav.links.open a{ padding:10px 0; border-bottom:1px solid var(--line); }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{ padding:76px 0 64px; position:relative; overflow:hidden; }
+  .hero::before{
+    content:''; position:absolute; inset:-20% -10% auto -10%; height:520px;
+    background:radial-gradient(60% 60% at 30% 20%, rgba(255,159,28,0.16), transparent 70%),
+               radial-gradient(50% 50% at 80% 10%, rgba(6,214,160,0.14), transparent 70%);
+    pointer-events:none;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:48px; align-items:center; position:relative;
+  }
+  @media (max-width:880px){ .hero-grid{ grid-template-columns:1fr; } }
+
+  .kicker{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:0.85rem; color:var(--sec); font-family:'IBM Plex Mono';
+    padding:6px 12px; border:1px solid rgba(6,214,160,0.35); border-radius:var(--radius-pill);
+    background:rgba(6,214,160,0.06);
+  }
+  .kicker .dot{ width:7px; height:7px; border-radius:50%; background:var(--sec); box-shadow:0 0 8px var(--sec); }
+
+  .hero h1{ font-size:clamp(2.1rem, 4.4vw, 3.35rem); line-height:1.08; margin:20px 0 18px; }
+  .hero h1 .accent{ background:linear-gradient(100deg, var(--aws), var(--sec)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .hero p.lead{ color:var(--text-dim); font-size:1.08rem; max-width:52ch; margin-bottom:28px; }
+
+  .hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-bottom:34px; }
+  .btn{
+    padding:12px 22px; border-radius:10px; font-weight:600; font-size:0.94rem;
+    text-decoration:none; display:inline-flex; align-items:center; gap:8px; border:1px solid transparent;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-primary{ background:var(--aws); color:#0B1120; box-shadow:0 10px 24px -12px rgba(255,159,28,0.55); }
+  .btn-ghost{ border-color:var(--line); color:var(--text); }
+
+  .hero-stats{ display:flex; gap:30px; flex-wrap:wrap; }
+  .stat b{ display:block; font-family:'Space Grotesk'; font-size:1.5rem; }
+  .stat span{ color:var(--text-dim); font-size:0.85rem; }
+  .stat:nth-child(1) b{ color:var(--aws); }
+  .stat:nth-child(2) b{ color:var(--sec); }
+  .stat:nth-child(3) b{ color:var(--hobby); }
+
+  /* Terminal panel */
+  .terminal{
+    background:#0A1420; border:1px solid var(--line); border-radius:16px;
+    box-shadow:0 30px 60px -30px rgba(0,0,0,0.6);
+    overflow:hidden;
+  }
+  .terminal-bar{
+    display:flex; align-items:center; gap:8px; padding:12px 16px;
+    background:#0E1B2B; border-bottom:1px solid var(--line);
+  }
+  .terminal-bar span{ width:11px; height:11px; border-radius:50%; }
+  .terminal-bar span:nth-child(1){ background:#FF5F57; }
+  .terminal-bar span:nth-child(2){ background:#FEBC2E; }
+  .terminal-bar span:nth-child(3){ background:#28C840; }
+  .terminal-title{ margin-left:8px; color:var(--text-dim); font-size:0.78rem; font-family:'IBM Plex Mono'; }
+  .terminal-body{ padding:20px 20px 26px; font-family:'IBM Plex Mono'; font-size:0.86rem; min-height:280px; }
+  .terminal-body .line{ margin-bottom:11px; white-space:pre-wrap; word-break:break-word; }
+  .terminal-body .prompt{ color:var(--sec); }
+  .terminal-body .path{ color:var(--aws); }
+  .terminal-body .out{ color:var(--text-dim); }
+  .terminal-body .ok{ color:var(--sec); }
+  .caret{ display:inline-block; width:8px; height:16px; background:var(--sec); vertical-align:middle; animation:blink 1s steps(1) infinite; }
+  @keyframes blink{ 50%{ opacity:0; } }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding:84px 0; border-top:1px solid var(--line); }
+  .section-head{ max-width:60ch; margin-bottom:44px; }
+  .section-head h2{ font-size:clamp(1.6rem, 2.8vw, 2.1rem); margin-bottom:12px; }
+  .section-head p{ color:var(--text-dim); font-size:1rem; }
+  .tag-strip{ display:flex; gap:10px; margin-bottom:18px; flex-wrap:wrap; }
+  .tag-strip .pill{ font-size:0.78rem; font-family:'IBM Plex Mono'; padding:5px 12px; border-radius:var(--radius-pill); border:1px solid var(--line); color:var(--text-dim); }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:48px; }
+  @media (max-width:820px){ .about-grid{ grid-template-columns:1fr; } }
+  .about-grid p{ color:var(--text-dim); margin-bottom:16px; }
+  .about-grid p strong{ color:var(--text); font-weight:600; }
+  .fact-list{ list-style:none; padding:0; margin:0; display:grid; gap:14px; }
+  .fact-list li{
+    display:flex; gap:14px; align-items:flex-start; padding:16px; border:1px solid var(--line);
+    border-radius:var(--radius-card); background:var(--bg-alt);
+  }
+  .fact-list .num{ font-family:'IBM Plex Mono'; font-size:0.8rem; color:var(--sec); padding-top:2px; }
+  .fact-list b{ display:block; font-size:0.95rem; margin-bottom:2px; }
+  .fact-list span{ color:var(--text-dim); font-size:0.86rem; }
+
+  /* ---------- SKILLS ---------- */
+  .skill-columns{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+  @media (max-width:820px){ .skill-columns{ grid-template-columns:1fr; } }
+  .skill-card{ border:1px solid var(--line); border-radius:var(--radius-card); padding:26px; background:var(--bg-alt); }
+  .skill-card h3{ font-size:1.05rem; display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+  .skill-card.devops h3{ color:var(--aws); }
+  .skill-card.security h3{ color:var(--sec); }
+  .swatch{ width:10px; height:10px; border-radius:3px; }
+  .skill-card.devops .swatch{ background:var(--aws); }
+  .skill-card.security .swatch{ background:var(--sec); }
+  .pills{ display:flex; flex-wrap:wrap; gap:9px; }
+  .pills span{
+    font-size:0.82rem; font-family:'IBM Plex Mono'; padding:7px 13px; border-radius:8px;
+    background:rgba(255,255,255,0.04); border:1px solid var(--line); color:var(--text);
+  }
+
+  /* ---------- EXPERIENCE (timeline = real sequence) ---------- */
+  .timeline{ position:relative; padding-left:28px; }
+  .timeline::before{ content:''; position:absolute; left:5px; top:6px; bottom:6px; width:2px; background:var(--line); }
+  .tl-item{ position:relative; padding-bottom:36px; }
+  .tl-item:last-child{ padding-bottom:0; }
+  .tl-item::before{
+    content:''; position:absolute; left:-28px; top:4px; width:12px; height:12px; border-radius:50%;
+    background:var(--bg); border:2px solid var(--sec);
+  }
+  .tl-item .role{ font-family:'Space Grotesk'; font-size:1.05rem; margin-bottom:4px; }
+  .tl-item .meta{ color:var(--text-dim); font-size:0.85rem; margin-bottom:10px; font-family:'IBM Plex Mono'; }
+  .tl-item ul{ margin:0; padding-left:20px; color:var(--text-dim); font-size:0.94rem; }
+  .tl-item li{ margin-bottom:6px; }
+
+  /* ---------- PROJECTS ---------- */
+  .project-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:22px; }
+  @media (max-width:900px){ .project-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:620px){ .project-grid{ grid-template-columns:1fr; } }
+  .project-card{
+    border:1px solid var(--line); border-radius:var(--radius-card); padding:24px; background:var(--bg-alt);
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .project-card .icon{
+    width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono'; font-size:0.8rem; color:#0B1120;
+  }
+  .project-card:nth-child(1) .icon{ background:var(--aws); }
+  .project-card:nth-child(2) .icon{ background:var(--sec); }
+  .project-card:nth-child(3) .icon{ background:var(--hobby); }
+  .project-card h3{ font-size:1.02rem; }
+  .project-card p{ color:var(--text-dim); font-size:0.9rem; margin:0; }
+  .project-card .stack{ display:flex; flex-wrap:wrap; gap:7px; margin-top:auto; }
+  .project-card .stack span{ font-size:0.74rem; font-family:'IBM Plex Mono'; color:var(--text-dim); border:1px solid var(--line); padding:3px 9px; border-radius:6px; }
+
+  /* ---------- CERTS ---------- */
+  .cert-row{ display:grid; grid-template-columns:repeat(4, 1fr); gap:18px; }
+  @media (max-width:900px){ .cert-row{ grid-template-columns:repeat(2, 1fr); } }
+  @media (max-width:520px){ .cert-row{ grid-template-columns:1fr; } }
+  .cert{ border:1px solid var(--line); border-radius:var(--radius-card); padding:20px; text-align:center; background:var(--bg-alt); }
+  .cert .badge{
+    width:46px; height:46px; margin:0 auto 12px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono'; font-weight:500;
+    border:1.5px solid var(--sec); color:var(--sec); font-size:0.75rem;
+  }
+  .cert b{ display:block; font-size:0.9rem; margin-bottom:4px; }
+  .cert span{ color:var(--text-dim); font-size:0.78rem; }
+
+  /* ---------- HOBBIES ---------- */
+  .hobby-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:22px; }
+  @media (max-width:820px){ .hobby-grid{ grid-template-columns:1fr; } }
+  .hobby-card{
+    border-radius:var(--radius-card); padding:26px; position:relative; overflow:hidden;
+    border:1px solid var(--line); background:var(--bg-alt);
+  }
+  .hobby-card .glow{ position:absolute; width:140px; height:140px; border-radius:50%; filter:blur(40px); opacity:0.35; top:-40px; right:-40px; }
+  .hobby-card:nth-child(1) .glow{ background:#2EC4F1; }
+  .hobby-card:nth-child(2) .glow{ background:var(--pink); }
+  .hobby-card:nth-child(3) .glow{ background:var(--hobby); }
+  .hobby-card svg{ position:relative; margin-bottom:16px; }
+  .hobby-card h3{ font-size:1rem; position:relative; margin-bottom:8px; }
+  .hobby-card p{ color:var(--text-dim); font-size:0.88rem; position:relative; margin:0; }
+
+  /* ---------- CONTACT ---------- */
+  .contact-panel{
+    border:1px solid var(--line); border-radius:20px; padding:52px 40px; text-align:center;
+    background:linear-gradient(160deg, rgba(255,159,28,0.08), rgba(6,214,160,0.06));
+    position:relative;
+  }
+  .contact-panel h2{ font-size:clamp(1.6rem, 3vw, 2.2rem); margin-bottom:14px; }
+  .contact-panel p{ color:var(--text-dim); max-width:48ch; margin:0 auto 28px; }
+  .contact-links{ display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
+  .contact-links a{
+    padding:12px 20px; border:1px solid var(--line); border-radius:10px; text-decoration:none;
+    font-size:0.9rem; font-weight:500; display:flex; align-items:center; gap:8px; background:var(--bg-alt);
+  }
+
+  footer{ padding:34px 0; text-align:center; color:var(--text-dim); font-size:0.85rem; border-top:1px solid var(--line); }
+  footer .mono{ color:var(--text-dim); }
 </style>
 </head>
 <body>
 
-<header>
-    <h1>Shree Gaurav Sharma</h1>
-    <div class="section hobbies">
-        <h2>Hobbies & Interests</h2>
-        <p>Some of my hobbies include coding, reading, and hiking.</p>
-    </div>
-    <p>DevOps Engineer | CI/CD | Cloud | Containers</p>
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand"><span class="brand-mark">AR</span>Alex Rivera</div>
+    <nav class="links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#hobbies">Beyond Work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Let's talk</a>
+    <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">☰</button>
+  </div>
 </header>
 
-<div class="container">
-
-    <div class="section">
-        <h2>About</h2>
-        <p>This portfolio showcases my DevOps training journey — covering CI/CD pipelines,
-        containerization, cloud infrastructure on AWS, and automated deployments using
-        Jenkins and Docker.</p>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker"><span class="dot"></span>Open to new engagements</span>
+      <h1>Automating cloud infrastructure, <span class="accent">securing</span> everything it runs.</h1>
+      <p class="lead">I'm Alex Rivera — an AWS DevOps Engineer and Cybersecurity Specialist who builds infrastructure that ships fast and holds up under attack. Nine years across CI/CD pipelines, cloud architecture, and offensive &amp; defensive security.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Start a project</a>
+        <a href="#projects" class="btn btn-ghost">See my work</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>9+</b><span>years in cloud &amp; security</span></div>
+        <div class="stat"><b>40+</b><span>production deployments shipped</span></div>
+        <div class="stat"><b>0</b><span>breaches on my watch</span></div>
+      </div>
     </div>
 
-    <div class="section">
-        <h2>Skills</h2>
-</html>
-            <span class="skill-badge">AWS EC2</span>
-            <span class="skill-badge">Jenkins</span>
-            <span class="skill-badge">Docker</span>
-            <span class="skill-badge">Git & GitHub</span>
-            <span class="skill-badge">CI/CD Pipelines</span>
-            <span class="skill-badge">Linux (Ubuntu)</span>
-            <span class="skill-badge">Shell Scripting</span>
+    <div class="terminal" aria-hidden="true">
+      <div class="terminal-bar">
+        <span></span><span></span><span></span>
+        <span class="terminal-title">alex@prod-ops: ~</span>
+      </div>
+      <div class="terminal-body" id="termBody"></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>About me</h2>
+      <p>Where cloud engineering meets security engineering.</p>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>I started out as a systems administrator, moved into <strong>AWS infrastructure automation</strong>, and along the way became the person my teams pulled in whenever something needed to be both fast and defensible. Today I split my time between building <strong>Infrastructure as Code</strong> and hardening the systems it produces.</p>
+        <p>I care about pipelines that fail loudly and safely, infrastructure that's reproducible from a single command, and security that's built in at design time — not bolted on after an incident. I've led migrations to fully containerized, zero-downtime deployments, and I've also been the one paged at 2 a.m. to trace a suspicious login across three AWS accounts.</p>
+        <p>Outside of terminals and threat models, you'll usually find me underwater, on two wheels, or being supervised by my dog while I work.</p>
+      </div>
+      <ul class="fact-list">
+        <li><span class="num">01</span><div><b>Cloud-native by default</b><span>Design every workload for AWS first: ECS/EKS, Lambda, and infrastructure as code with Terraform.</span></div></li>
+        <li><span class="num">02</span><div><b>Security is a requirement, not a phase</b><span>Threat modeling, IAM least-privilege, and automated scanning built into every pipeline stage.</span></div></li>
+        <li><span class="num">03</span><div><b>Automation-obsessed</b><span>If I do something twice by hand, the third time it's a script — or it's in the pipeline.</span></div></li>
+        <li><span class="num">04</span><div><b>Calm under incident</b><span>Comfortable owning the room during an outage or a live security event, from triage to postmortem.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Skills &amp; tooling</h2>
+      <p>The stack I reach for on both sides of the fence — building it, and defending it.</p>
+    </div>
+    <div class="skill-columns">
+      <div class="skill-card devops">
+        <h3><span class="swatch"></span>AWS &amp; DevOps</h3>
+        <div class="pills">
+          <span>AWS (EC2, ECS, EKS, Lambda)</span>
+          <span>Terraform</span>
+          <span>CloudFormation</span>
+          <span>Docker</span>
+          <span>Kubernetes</span>
+          <span>Jenkins</span>
+          <span>GitHub Actions</span>
+          <span>Ansible</span>
+          <span>Prometheus / Grafana</span>
+          <span>Python</span>
+          <span>Bash</span>
         </div>
-    </div>
-
-    <div class="section">
-        <h2>Projects</h2>
-
-        <div class="project-card">
-            <h3>Jenkins + Docker CI/CD Pipeline</h3>
-            <p>Automated pipeline that pulls source code from GitHub, builds a Docker image,
-            and deploys a containerized application — triggered automatically on every
-            git push via GitHub webhooks.</p>
+      </div>
+      <div class="skill-card security">
+        <h3><span class="swatch"></span>Cybersecurity</h3>
+        <div class="pills">
+          <span>IAM &amp; Zero Trust</span>
+          <span>AWS Security Hub / GuardDuty</span>
+          <span>SIEM (Splunk)</span>
+          <span>Vulnerability Scanning</span>
+          <span>Penetration Testing</span>
+          <span>Incident Response</span>
+          <span>Network Security</span>
+          <span>Compliance (SOC 2, ISO 27001)</span>
+          <span>Nmap / Burp Suite</span>
+          <span>Secrets Management</span>
         </div>
-
-        <div class="project-card">
-            <h3>Dockerized Static Web Apps</h3>
-            <p>This very page — built into an nginx-based Docker image and deployed via
-            Jenkins, demonstrating an end-to-end build-and-deploy workflow.</p>
-        </div>
+      </div>
     </div>
+  </div>
+</section>
 
-    <div class="section">
-        <h2>Contact</h2>
-        <p>GitHub: <a href="https://github.com/shreegauravsharma-Zeke" style="color:#38bdf8;">
-        shreegauravsharma-Zeke</a></p>
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Experience</h2>
+      <p>A quick path through where I've built and defended infrastructure.</p>
     </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="role">Senior AWS DevOps &amp; Security Engineer — Company Name</div>
+        <div class="meta">2023 — Present</div>
+        <ul>
+          <li>Own CI/CD pipelines and cloud security posture across multiple AWS accounts.</li>
+          <li>Cut deployment time by automating infrastructure provisioning with Terraform and GitHub Actions.</li>
+          <li>Lead incident response for cloud-security events and run quarterly tabletop exercises.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="role">DevOps Engineer — Company Name</div>
+        <div class="meta">2020 — 2023</div>
+        <ul>
+          <li>Migrated legacy services to containerized, zero-downtime deployments on ECS/EKS.</li>
+          <li>Built centralized monitoring and alerting, reducing mean time to detection.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="role">Systems Administrator — Company Name</div>
+        <div class="meta">2017 — 2020</div>
+        <ul>
+          <li>Managed on-prem and early cloud infrastructure, laying the groundwork for full AWS migration.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-</div>
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Selected projects</h2>
+      <p>A few things I've shipped that I'm proud to talk through in detail.</p>
+    </div>
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="icon">AWS</div>
+        <h3>Zero-downtime EKS platform</h3>
+        <p>Rebuilt a monolith's deployment pipeline into a blue/green EKS rollout with automated rollback on failed health checks.</p>
+        <div class="stack"><span>Terraform</span><span>EKS</span><span>GitHub Actions</span></div>
+      </div>
+      <div class="project-card">
+        <div class="icon">SEC</div>
+        <h3>Cloud security baseline</h3>
+        <p>Designed an org-wide AWS security baseline: guardrails, GuardDuty alerting, and automated compliance checks in every account.</p>
+        <div class="stack"><span>GuardDuty</span><span>Security Hub</span><span>IAM</span></div>
+      </div>
+      <div class="project-card">
+        <div class="icon">CI</div>
+        <h3>Self-service pipeline templates</h3>
+        <p>Built reusable CI/CD templates so product teams could ship containers safely without needing a dedicated DevOps engineer per team.</p>
+        <div class="stack"><span>Docker</span><span>Jenkins</span><span>Python</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Certifications</h2>
+      <p>Formal recognition to back up the hands-on experience.</p>
+    </div>
+    <div class="cert-row">
+      <div class="cert"><div class="badge">AWS</div><b>Solutions Architect</b><span>Associate / Professional</span></div>
+      <div class="cert"><div class="badge">SEC+</div><b>Security+</b><span>CompTIA</span></div>
+      <div class="cert"><div class="badge">CEH</div><b>Ethical Hacker</b><span>EC-Council</span></div>
+      <div class="cert"><div class="badge">K8s</div><b>CKA</b><span>Certified Kubernetes Admin</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="hobbies">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Beyond the terminal</h2>
+      <p>The things that keep me level-headed when production is on fire.</p>
+    </div>
+    <div class="hobby-grid">
+      <div class="hobby-card">
+        <div class="glow"></div>
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <circle cx="22" cy="18" r="9" stroke="#2EC4F1" stroke-width="2.4"/>
+          <circle cx="19" cy="16" r="1.6" fill="#2EC4F1"/>
+          <circle cx="25" cy="16" r="1.6" fill="#2EC4F1"/>
+          <path d="M17 21c1.5 1.4 8.5 1.4 10 0" stroke="#2EC4F1" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M13 27c6 6 12 6 18 0M11 33c8 7 14 7 22 0" stroke="#2EC4F1" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <h3>Scuba diving</h3>
+        <p>Certified diver who's happiest well below the surface — reefs and wrecks are my version of unplugging completely.</p>
+      </div>
+      <div class="hobby-card">
+        <div class="glow"></div>
+        <svg width="46" height="44" viewBox="0 0 46 44" fill="none">
+          <circle cx="10" cy="30" r="7" stroke="#EF476F" stroke-width="2.4"/>
+          <circle cx="36" cy="30" r="7" stroke="#EF476F" stroke-width="2.4"/>
+          <path d="M10 30 L20 14 L28 14 M20 14 L26 30 M28 14 L36 30 M15 22 H26" stroke="#EF476F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3>Riding bikes</h3>
+        <p>Long weekend rides, mountain trails when I can find them, and a standing excuse to get away from a screen.</p>
+      </div>
+      <div class="hobby-card">
+        <div class="glow"></div>
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <circle cx="22" cy="26" r="8" stroke="#9B5DE5" stroke-width="2.4"/>
+          <circle cx="10" cy="16" r="3.4" fill="#9B5DE5"/>
+          <circle cx="19" cy="10" r="3.4" fill="#9B5DE5"/>
+          <circle cx="27" cy="10" r="3.4" fill="#9B5DE5"/>
+          <circle cx="35" cy="16" r="3.4" fill="#9B5DE5"/>
+        </svg>
+        <h3>Animal lover</h3>
+        <p>There's always a pet nearby — I volunteer with local animal rescues and I'm a soft touch for anything with paws.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-panel">
+      <h2>Let's build something that ships fast and holds up.</h2>
+      <p>Open to DevOps, cloud infrastructure, and security engineering roles or contract work. Reach out and I'll get back to you quickly.</p>
+      <div class="contact-links">
+        <a href="mailto:alex.rivera@example.com">alex.rivera@example.com</a>
+        <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#" target="_blank" rel="noopener">Resume (PDF)</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <footer>
-    &copy; 2026 Shree Gaurav Sharma — Built with Docker & Jenkins
+  <div class="wrap">
+    <span class="mono">// built with terraform, docker, and a healthy respect for least-privilege IAM</span>
+    <div style="margin-top:8px;">© <span id="year"></span> Alex Rivera. All rights reserved.</div>
+  </div>
 </footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Terminal typing animation — a single orchestrated hero moment
+  const lines = [
+    { p: 'aws sts get-caller-identity', out: '"Account": "•••••••42193", "Arn": "arn:aws:iam::role/DevOpsAdmin"' },
+    { p: 'terraform apply -auto-approve', out: 'Apply complete! Resources: 14 added, 0 changed, 0 destroyed.' },
+    { p: 'kubectl rollout status deploy/api', out: 'deployment "api" successfully rolled out' },
+    { p: 'nmap -sV -p- prod-gateway', out: '443/tcp open  https   nginx — 0 unexpected ports found' },
+    { p: 'git push origin main', out: 'main -> main  [CI/CD pipeline triggered]' }
+  ];
+
+  const body = document.getElementById('termBody');
+  let li = 0;
+
+  function typeLine(text, el, cb){
+    let i = 0;
+    (function step(){
+      el.textContent = text.slice(0, i);
+      if(i < text.length){ i++; setTimeout(step, 18); }
+      else cb();
+    })();
+  }
+
+  function renderNext(){
+    if(li >= lines.length){
+      setTimeout(() => { body.innerHTML=''; li=0; renderNext(); }, 2200);
+      return;
+    }
+    const row = document.createElement('div');
+    row.className = 'line';
+    const promptSpan = document.createElement('span');
+    promptSpan.className = 'prompt';
+    promptSpan.textContent = '$ ';
+    row.appendChild(promptSpan);
+    const cmdSpan = document.createElement('span');
+    cmdSpan.className = 'path';
+    row.appendChild(cmdSpan);
+    body.appendChild(row);
+
+    typeLine(lines[li].p, cmdSpan, () => {
+      const outRow = document.createElement('div');
+      outRow.className = 'line out';
+      outRow.innerHTML = '<span class="ok">✓</span> ' + lines[li].out;
+      body.appendChild(outRow);
+      li++;
+      setTimeout(renderNext, 500);
+    });
+  }
+  renderNext();
+</script>
 
 </body>
 </html>
